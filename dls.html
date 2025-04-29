@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>চিত্র স্বেচ্ছাসেবী সংস্থা</title>
+  <script type="module">
+    // Firebase v9+ Modular SDK
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.18.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBsZbpQU4WzvaySRuOIVfKbPrl4TWgOJ-E",
+      authDomain: "chitraorg-c6c9d.firebaseapp.com",
+      databaseURL: "https://chitraorg-c6c9d-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "chitraorg-c6c9d",
+      storageBucket: "chitraorg-c6c9d.firebasestorage.app",
+      messagingSenderId: "165816182520",
+      appId: "1:165816182520:web:a80c29517ec5f1ba613d0d",
+      measurementId: "G-Q354B988GQ"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const bloodRef = ref(database, 'bloodDonors');
+
+    const donorTableBody = document.getElementById("donorTableBody");
+
+    onValue(bloodRef, (snapshot) => {
+      const data = snapshot.val();
+      donorTableBody.innerHTML = "";
+      if (data) {
+        Object.values(data).forEach((donor) => {
+          const row = `<tr><td>${donor.name}</td><td>${donor.phone}</td><td>${donor.bloodGroup}</td></tr>`;
+          donorTableBody.innerHTML += row;
+        });
+      } else {
+        donorTableBody.innerHTML = '<tr><td colspan="3">কোনো রেজিস্ট্রেশন পাওয়া যায়নি</td></tr>';
+      }
+    });
+  </script>
+  <style>
+    body {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      color: #d32f2f;
+      margin-bottom: 10px;
+    }
+    header h2 {
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+    nav {
+      background-color: #eeeeee;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #d32f2f;
+    }
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    table {
+      width: 90%;
+      margin: 20px auto;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>রক্তদাতাদের তালিকা</h1>
+    <h2>চিত্র স্বেচ্ছাসেবী সংস্থা</h2>
+  </header>
+  <section class="section">
+    <table>
+      <thead>
+        <tr>
+          <th>নাম</th>
+          <th>ফোন</th>
+          <th>রক্তের গ্রুপ</th>
+        </tr>
+      </thead>
+      <tbody id="donorTableBody">
+        <tr><td colspan="3">তথ্য লোড হচ্ছে...</td></tr>
+      </tbody>
+    </table>
+  </section>
+  <footer>
+    &copy; ২০২৫ চিত্র স্বেচ্ছাসেবী সংস্থা
+  </footer>
+</body>
+</html>
