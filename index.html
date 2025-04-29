@@ -1,9 +1,255 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>চিত্র স্বেচ্ছাসেবী সংস্থা</title>
-  ...
+  <style>
+    body {
+      font-family: 'Noto Sans Bengali', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      color: #d32f2f;
+      margin-bottom: 10px;
+    }
+    header h2 {
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+    nav {
+      background-color: #eeeeee;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #d32f2f;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .cta-buttons button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      color: #fff;
+    }
+    .blood { background-color: #e53935; }
+    .tree { background-color: #388e3c; }
+    .aid { background-color: #00695c; }
+
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .icons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .icon {
+      text-align: center;
+      font-size: 18px;
+    }
+    .activities {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .activity-box {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+    }
+    form input, form textarea {
+      width: 90%;
+      max-width: 400px;
+      padding: 10px;
+      margin: 8px auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      background-color: #d32f2f;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #222;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>চিত্র স্বেচ্ছাসেবী সংস্থা</h1>
+    <h2>জীবন বাঁচাই, গাছ লাগাই, সহানুভূতি ছড়াই</h2>
+  </header>
+  <nav>
+    <a href="#">হোম</a>
+    <a href="#blood">রক্তদান</a>
+    <a href="#tree">বৃক্ষরোপণ</a>
+    <a href="#aid">আর্থিক সহায়তা</a>
+    <a href="#contact">যোগাযোগ</a>
+  </nav>
+
+  <section class="section" id="home">
+    <div class="cta-buttons">
+      <button class="blood">রক্তদাতা হিসেবে নিবন্ধন করুন</button>
+      <button class="tree">গাছ লাগানোর অভিযানে যোগ দিন</button>
+      <button class="aid">অসহায়দের পাশে দাঁড়ান</button>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>আমাদের সম্পর্কে</h2>
+    <p>আমরা রক্তদান, বৃক্ষরোপণ ও অসহায়দের আর্থিক সহায়তার মাধ্যমে সমাজে ইতিবাচক পরিবর্তন আনার লক্ষ্যে কাজ করি।</p>
+    <div class="icons">
+      <div class="icon">🩸<br>রক্তদান</div>
+      <div class="icon">🌱<br>বৃক্ষরোপণ</div>
+      <div class="icon">💰<br>আর্থিক সহায়তা</div>
+    </div>
+  </section>
+
+  <section class="section" id="activities">
+    <h2>সাম্প্রতিক কার্যক্রম</h2>
+    <div class="activities">
+      <div class="activity-box">
+        <strong>এপ্রিল ২০২৫</strong><br>
+        ২০+ রক্তদান কর্মসূচি
+      </div>
+      <div class="activity-box">
+        <strong>মার্চ ২০২৫</strong><br>
+        খুলনায় ১০০+ গাছ রোপণ
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="blood">
+    <h2>রক্তদাতা নিবন্ধন</h2>
+    <form id="bloodForm">
+      <input type="text" id="name" placeholder="আপনার নাম"><br>
+      <input type="text" id="phone" placeholder="মোবাইল নম্বর"><br>
+      <input type="text" id="bloodGroup" placeholder="ব্লাড গ্রুপ"><br>
+      <button type="submit" class="blood">জমা দিন</button>
+    </form>
+    <p id="responseMessage" style="margin-top: 10px; color: green;"></p>
+  </section>
+
+  <section class="section" id="tree">
+    <h2>বৃক্ষরোপণ স্বেচ্ছাসেবক নিবন্ধন</h2>
+    <form id="treeForm">
+      <input type="text" id="treeName" placeholder="আপনার নাম"><br>
+      <input type="text" id="treeLocation" placeholder="অবস্থান (উপজেলা বা শহর)"><br>
+      <button type="submit" class="tree">যোগ দিন</button>
+    </form>
+    <p id="treeResponse" style="margin-top: 10px; color: green;"></p>
+  </section>
+
+  <section class="section" id="aid">
+    <h2>আর্থিক সহায়তা প্রদানের ফর্ম</h2>
+    <form id="aidForm">
+      <input type="text" id="aidName" placeholder="আপনার নাম"><br>
+      <input type="number" id="aidAmount" placeholder="দানকৃত অর্থ (৳)"><br>
+      <button type="submit" class="aid">দান করুন</button>
+    </form>
+    <p id="aidResponse" style="margin-top: 10px; color: green;"></p>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>যোগাযোগ করুন</h2>
+    <p>আমাদের সাথে যোগাযোগ করতে নিচের ফর্মটি পূরণ করুন:</p>
+    <form>
+      <input type="text" placeholder="আপনার নাম"><br>
+      <input type="email" placeholder="ইমেইল"><br>
+      <textarea placeholder="আপনার বার্তা"></textarea><br>
+      <button>পাঠান</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; ২০২৫ চিত্র স্বেচ্ছাসেবী সংস্থা | সর্বস্বত্ব সংরক্ষিত
+  </footer>
+
+  <script>
+    document.getElementById("bloodForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const bloodGroup = document.getElementById("bloodGroup").value.trim();
+      const message = document.getElementById("responseMessage");
+      if (!name || !phone || !bloodGroup) {
+        message.textContent = "সব তথ্য দিন।";
+        message.style.color = "red";
+        return;
+      }
+      message.textContent = `ধন্যবাদ ${name}, আপনার রেজিস্ট্রেশন সম্পন্ন হয়েছে!`;
+      message.style.color = "green";
+      document.getElementById("bloodForm").reset();
+    });
+
+    document.getElementById("treeForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("treeName").value.trim();
+      const location = document.getElementById("treeLocation").value.trim();
+      const response = document.getElementById("treeResponse");
+      if (!name || !location) {
+        response.textContent = "সব তথ্য দিন।";
+        response.style.color = "red";
+        return;
+      }
+      response.textContent = `ধন্যবাদ ${name}, আপনি ${location}-এ বৃক্ষরোপণে অংশগ্রহণ করবেন!`;
+      response.style.color = "green";
+      document.getElementById("treeForm").reset();
+    });
+
+    document.getElementById("aidForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("aidName").value.trim();
+      const amount = document.getElementById("aidAmount").value.trim();
+      const response = document.getElementById("aidResponse");
+      if (!name || !amount || isNaN(amount) || Number(amount) <= 0) {
+        response.textContent = "সঠিক তথ্য দিন।";
+        response.style.color = "red";
+        return;
+      }
+      response.textContent = `ধন্যবাদ ${name}, আপনি ৳${amount} দান করেছেন!`;
+      response.style.color = "green";
+      document.getElementById("aidForm").reset();
+    });
+  </script>
+</body>
 </html>
